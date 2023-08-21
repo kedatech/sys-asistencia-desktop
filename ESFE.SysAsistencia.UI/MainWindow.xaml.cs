@@ -97,6 +97,11 @@ namespace ESFE.SysAsistencia.UI
                 this.DragMove();
             }
         }
+
+        private void membersDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 
     public class Member

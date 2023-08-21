@@ -21,12 +21,12 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Border Grid.Row="1" Background="#116">
+            <Border Grid.Row="1" Background="#116" CornerRadius="0 50 0 0">
                 <DockPanel>
              
                     <!--Menu Titles-->
-                    <TextBlock Text="Silvers Club" Foreground="White" FontSize="22" FontWeight="SemiBold" DockPanel.Dock="Top" Margin="5 25 0 10" TextAlignment="Center"/>
-                    <TextBlock Text="Members, France" Foreground="#D0BFFF" FontSize="14" FontWeight="SemiBold" DockPanel.Dock="Top" TextAlignment="Center"/>
+                    <TextBlock Text="Helen Contreras" Foreground="White" FontSize="22" FontWeight="SemiBold" DockPanel.Dock="Top" Margin="5 25 0 10" TextAlignment="Center"/>
+                    <TextBlock Text="Docente" Foreground="#D0BFFF" FontSize="14" FontWeight="SemiBold" DockPanel.Dock="Top" TextAlignment="Center"/>
 
                     <!--Menu Seprator-->
                     <Separator Margin="25" Background="#7E5FDC" DockPanel.Dock="Top" Height="0.8"/>
@@ -43,18 +43,18 @@
                         <Button Style="{StaticResource menuButton}">
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="CalendarClock" Style="{StaticResource menuButtonIcon}"/>
-                                <TextBlock Text="Events"/>
+                                <TextBlock Text="Asistencias"/>
                             </StackPanel>
                         </Button>
 
                         <Button Style="{StaticResource menuButton}" Background="#7B5CD6" Foreground="White">
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="AccountMultipleOutline" Style="{StaticResource menuButtonIcon}"/>
-                                <TextBlock Text="Members"/>
+                                <TextBlock Text="Estudiantes"/>
                             </StackPanel>
                         </Button>
 
-                        <Button Style="{StaticResource menuButton}">
+                        <!--<Button Style="{StaticResource menuButton}">
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="CashMultiple" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Wallet"/>
@@ -66,7 +66,7 @@
                                 <Icon:PackIconMaterial Kind="ForumOutline" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Messages"/>
                             </StackPanel>
-                        </Button>
+                        </Button>-->
 
                     </StackPanel>
 
@@ -94,25 +94,7 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
-            <!--Search Textbox-->
-            <!--<Grid Width="300" HorizontalAlignment="Left">
-                    <TextBlock Margin="20 0" VerticalAlignment="Center" Foreground="#B0B9C6" IsHitTestVisible="False"
-               Panel.ZIndex="1" Text="Search here ..."
-               Visibility="Visible">
-                        <TextBlock.Style>
-                            <Style TargetType="TextBlock">
-                                <Setter Property="Visibility" Value="Collapsed" />
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding ElementName=textBoxSearch, Path=Text}" Value="">
-                                        <Setter Property="Visibility" Value="Visible" />
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBlock.Style>
-                    </TextBlock>
-                    <TextBox Name="textBoxSearch" />
-                    <Icon:PackIconMaterial Kind="Magnify" Width="15" Height="15" VerticalAlignment="Center" Margin="0 0 15 0" Foreground="#B0B9C6" HorizontalAlignment="Right" />
-                </Grid>-->
+            <!--TODO: Search Textbox-->
 
 
             <!--Top Buttons-->
@@ -125,13 +107,13 @@
             </Button>
 
             <!--Page Title-->
-            <TextBlock Text="Members" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="#121518" HorizontalAlignment="Left"/>
+            <TextBlock Text="Estudiantes" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="#121518" HorizontalAlignment="Left"/>
 
             <!--Add Button-->
             <Button Style="{StaticResource addButton}">
                 <StackPanel Orientation="Horizontal">
                     <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11" Height="11"/>
-                    <TextBlock Text="Add New Member"/>
+                    <TextBlock Text="Registrar Huella"/>
                 </StackPanel>
             </Button>
 
@@ -140,13 +122,13 @@
 
             <!--Tab buttons-->
             <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 10 0 0">
-                <Button Style="{StaticResource tabButton}" Content="Club staff" BorderBrush="#784FF2"/>
+                <!--<Button Style="{StaticResource tabButton}" Content="C" BorderBrush="#784FF2"/>
                 <Button Style="{StaticResource tabButton}" Content="Players"/>
-                <Button Style="{StaticResource tabButton}" Content="Archived"/>
+                <Button Style="{StaticResource tabButton}" Content="Archived"/>-->
             </StackPanel>
 
             <!--Counter Title-->
-            <TextBlock Text="68 Club Staff" Grid.Row="4" FontSize="18" FontWeight="SemiBold" Foreground="#121518" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <!--<TextBlock Text="68 Club Staff" Grid.Row="4" FontSize="18" FontWeight="SemiBold" Foreground="#121518" HorizontalAlignment="Left" VerticalAlignment="Center"/>-->
 
             <TextBlock Text="Filter by" Grid.Row="4" FontSize="13" FontWeight="SemiBold" Margin="0 0 215 0" Foreground="#121518" HorizontalAlignment="Right" VerticalAlignment="Center"/>
 
@@ -160,7 +142,7 @@
             </Grid>
 
             <!--Members Data Grid-->
-            <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="membersDataGrid" Style="{DynamicResource DataGridStyle1}">
+            <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="membersDataGrid" Style="{DynamicResource DataGridStyle1}" SelectionChanged="membersDataGrid_SelectionChanged">
                 <DataGrid.Columns>
                     <DataGridCheckBoxColumn Header="C" CanUserResize="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle1}">
                         <DataGridCheckBoxColumn.HeaderTemplate>
@@ -183,7 +165,7 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTextColumn Header="Position" Binding="{Binding Position}" IsReadOnly="True" Width="*"/>
+                    <!--<DataGridTextColumn Header="Position" Binding="{Binding Position}" IsReadOnly="True" Width="*"/>-->
                     <DataGridTextColumn Header="Email Address" Binding="{Binding Email}" IsReadOnly="True" Width="*"/>
                     <DataGridTextColumn Header="Phone Number" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
                     <DataGridTemplateColumn Header="Operations" IsReadOnly="True" Width="auto">
