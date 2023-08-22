@@ -33,7 +33,7 @@
 
                     <!--Menu Buttons-->
                     <StackPanel DockPanel.Dock="Top" >
-                        <Button Style="{StaticResource menuButton}">
+                        <Button Style="{StaticResource menuButton}" Click="Button_Click_1">
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Inicio"/>
