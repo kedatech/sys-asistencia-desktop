@@ -36,7 +36,7 @@
                         <Button Style="{StaticResource menuButton}">
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menuButtonIcon}"/>
-                                <TextBlock Text="Dashboard"/>
+                                <TextBlock Text="Inicio"/>
                             </StackPanel>
                         </Button>
 
@@ -47,7 +47,7 @@
                             </StackPanel>
                         </Button>
 
-                        <Button Style="{StaticResource menuButton}" Background="#7B5CD6" Foreground="White">
+                        <Button Style="{StaticResource menuButton}" Background="#7B5CD6" Foreground="White" Click="Button_Click">
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="AccountMultipleOutline" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Estudiantes"/>
@@ -81,113 +81,11 @@
             </Border>
 
         </Grid>
+        <StackPanel Grid.Column="1" Margin="0,10,0,0">
+            <Frame x:Name="frame" Content="Frame" Height="694"/>
+            
+        </StackPanel>
 
-        <!--Main Section-->
-        <Grid Grid.Column="1" Margin="30 20 20 20">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="auto"/>
-            </Grid.RowDefinitions>
-
-            <!--TODO: Search Textbox-->
-
-
-            <!--Top Buttons-->
-            <Button Style="{StaticResource topButton}" Margin="0 0 20 0" Background="#dcdcdc">
-                <Icon:PackIconMaterial Kind="Cog"/>
-            </Button>
-
-            <Button Style="{StaticResource topButton}" Margin="0 0 55 0">
-                <Icon:PackIconMaterial Kind="Bell"/>
-            </Button>
-
-            <!--Page Title-->
-            <TextBlock Text="Estudiantes" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="#121518" HorizontalAlignment="Left"/>
-
-            <!--Add Button-->
-            <Button Style="{StaticResource addButton}">
-                <StackPanel Orientation="Horizontal">
-                    <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11" Height="11"/>
-                    <TextBlock Text="Registrar Huella"/>
-                </StackPanel>
-            </Button>
-
-            <!--Seprator-->
-            <Separator Height="1" Grid.Row="3" Background="#DAE2EA" Margin="0 -1 0 10"/>
-
-            <!--Tab buttons-->
-            <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 10 0 0">
-                <!--<Button Style="{StaticResource tabButton}" Content="C" BorderBrush="#784FF2"/>
-                <Button Style="{StaticResource tabButton}" Content="Players"/>
-                <Button Style="{StaticResource tabButton}" Content="Archived"/>-->
-            </StackPanel>
-
-            <!--Counter Title-->
-            <!--<TextBlock Text="68 Club Staff" Grid.Row="4" FontSize="18" FontWeight="SemiBold" Foreground="#121518" HorizontalAlignment="Left" VerticalAlignment="Center"/>-->
-
-            <TextBlock Text="Filter by" Grid.Row="4" FontSize="13" FontWeight="SemiBold" Margin="0 0 215 0" Foreground="#121518" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-
-            <!--Filter Textbox-->
-            <Grid Width="200" HorizontalAlignment="Right" Grid.Row="4">
-                <TextBlock Margin="15 0" VerticalAlignment="Center" Foreground="#B0B9C6" IsHitTestVisible="False"
-                           Panel.ZIndex="1" Text="Search in Members ..."
-                           Visibility="{Binding ElementName=textBoxFilter, Path=IsEnabled, Converter={StaticResource BoolToVis}}" />
-
-                <TextBox Name="textBoxFilter" Style="{StaticResource filterTextBox}"/>
-            </Grid>
-
-            <!--Members Data Grid-->
-            <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="membersDataGrid" Style="{DynamicResource DataGridStyle1}" SelectionChanged="membersDataGrid_SelectionChanged">
-                <DataGrid.Columns>
-                    <DataGridCheckBoxColumn Header="C" CanUserResize="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle1}">
-                        <DataGridCheckBoxColumn.HeaderTemplate>
-                            <DataTemplate>
-                                <CheckBox Style="{StaticResource CheckBoxStyle1}"/>
-                            </DataTemplate>
-                        </DataGridCheckBoxColumn.HeaderTemplate>
-                    </DataGridCheckBoxColumn>
-                    <DataGridTextColumn Header="#" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding Number}"/>
-                    <DataGridTemplateColumn Header="Member" IsReadOnly="True" Width="*">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <Border Width="25" Height="25" CornerRadius="50" Margin="0 0 10 0" Background="{Binding BgColor}">
-                                        <TextBlock Text="{Binding Character}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="0 0 0 1"/>
-                                    </Border>
-
-                                    <TextBlock Text="{Binding Name}" VerticalAlignment="Center"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <!--<DataGridTextColumn Header="Position" Binding="{Binding Position}" IsReadOnly="True" Width="*"/>-->
-                    <DataGridTextColumn Header="Email Address" Binding="{Binding Email}" IsReadOnly="True" Width="*"/>
-                    <DataGridTextColumn Header="Phone Number" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
-                    <DataGridTemplateColumn Header="Operations" IsReadOnly="True" Width="auto">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <Button Style="{StaticResource gridEditButton}">
-                                        <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
-                                    </Button>
-                                    <Button Margin="5 0 0 0" Style="{StaticResource gridRemoveButton}">
-                                        <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
-                                    </Button>
-                                </StackPanel>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
-            </DataGrid>
-
-
-
-        </Grid>
 
     </Grid>
 </Window>
