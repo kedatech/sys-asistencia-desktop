@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:ESFE.SysAsistencia.UI"
  
              xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
-             StartupUri="MainWindow.xaml"
+             StartupUri="RFID/Escanear.xaml"
              xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
     <Application.Resources>
 

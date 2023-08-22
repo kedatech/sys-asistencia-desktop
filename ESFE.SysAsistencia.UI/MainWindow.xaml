@@ -135,7 +135,7 @@
             <!--Filter Textbox-->
             <Grid Width="200" HorizontalAlignment="Right" Grid.Row="4">
                 <TextBlock Margin="15 0" VerticalAlignment="Center" Foreground="#B0B9C6" IsHitTestVisible="False"
-                           Panel.ZIndex="1" Text="Search in Members ..."
+                           Panel.ZIndex="1" Text="Buscando Estudiantes ..."
                            Visibility="{Binding ElementName=textBoxFilter, Path=IsEnabled, Converter={StaticResource BoolToVis}}" />
 
                 <TextBox Name="textBoxFilter" Style="{StaticResource filterTextBox}"/>
@@ -166,9 +166,9 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <!--<DataGridTextColumn Header="Position" Binding="{Binding Position}" IsReadOnly="True" Width="*"/>-->
-                    <DataGridTextColumn Header="Email Address" Binding="{Binding Email}" IsReadOnly="True" Width="*"/>
-                    <DataGridTextColumn Header="Phone Number" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
-                    <DataGridTemplateColumn Header="Operations" IsReadOnly="True" Width="auto">
+                    <DataGridTextColumn Header="Correo" Binding="{Binding Email}" IsReadOnly="True" Width="*"/>
+                    <DataGridTextColumn Header="Telefono" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
+                    <DataGridTemplateColumn Header="Operaciones" IsReadOnly="True" Width="auto">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
