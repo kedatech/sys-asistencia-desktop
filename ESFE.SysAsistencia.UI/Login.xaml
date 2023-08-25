@@ -29,7 +29,9 @@
                                FontSize="25"
                                FontWeight="Medium"
                                FontFamily="Montserrat"
-                               HorizontalAlignment="Center"/>
+                               HorizontalAlignment="Center"
+                               x:Name="txtLogin"
+                       />
 
 
             <TextBlock Text="Usuario"

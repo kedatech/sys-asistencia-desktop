@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ESFE.SysAsistencia.BL;
+using ESFE.SysAsistencia.EN;
 
 namespace ESFE.SysAsistencia.UI
 {
@@ -19,15 +21,18 @@ namespace ESFE.SysAsistencia.UI
     /// </summary>
     public partial class Login : Window
     {
+        AuthBL auth = new AuthBL();
         public Login()
         {
             InitializeComponent();
         }
 
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        private async void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
+            Auth value = await auth.Login("helen.contreras@esfe.agape.edu.sv", "123");
+            //txtLogin.Text = value;
+            //MainWindow mainWindow = new MainWindow();
+            //mainWindow.Show();
         }
     }
 }
