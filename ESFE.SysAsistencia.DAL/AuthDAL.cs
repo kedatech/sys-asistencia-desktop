@@ -1,7 +1,9 @@
 ﻿using System;
+using System.IO;
+using System.Net.Http;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-// RestSharp usings
 using RestSharp;
 using RestSharp.Authenticators;
 using ESFE.SysAsistencia.EN; // Asegúrate de agregar esta referencia al espacio de nombres correcto
@@ -16,25 +18,42 @@ namespace ESFE.SysAsistencia.DAL
             var options = new RestClientOptions("https://esfe-asistencia-api-dev.fl0.io/api");
             var client = new RestClient(options);
 
-            var request = new RestRequest("/asistencia", Method.Post);
+            var request = new RestRequest("/auth/login", Method.Post);
             var cancellationToken = new CancellationToken(); // Debes definir un token de cancelación
 
             // Agregar los parámetros en el cuerpo de la solicitud
-            
             request.AddObject(new { correo = correo, contrasenia = contrasenia });
 
-            var response = await client.PostAsync<Auth>(request, cancellationToken);
+            try
+            {
+                var response = await client.ExecuteAsync(request, cancellationToken);
 
-            // Procesar la respuesta aquí
-            if (response != null)
-            {
-                Console.WriteLine("Respuesta exitosa:");
-                Console.WriteLine(response);
-                return response;
+                // Procesar la respuesta aquí
+                if (response != null ) // Verifica si la respuesta fue exitosa (código 200)
+                {
+                    using (var responseStream = new MemoryStream(response.RawBytes))
+                    {
+                        var auth = JsonSerializer.DeserializeAsync<Auth>(responseStream).Result;
+
+                        Console.WriteLine("Respuesta exitosa:");
+                        Console.WriteLine(response.Content); // Puedes acceder al contenido de la respuesta
+                        return auth;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Error en la solicitud:");
+                    if (response != null)
+                    {
+                        Console.WriteLine("Código de estado HTTP: " + response.StatusCode);
+                    }
+                    return null;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine("Error en la solicitud:");
+                Console.WriteLine("Excepción al realizar la solicitud:");
+                Console.WriteLine(ex.Message);
                 return null;
             }
         }
