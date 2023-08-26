@@ -25,6 +25,8 @@ namespace ESFE.SysAsistencia.UI
         public Login()
         {
             InitializeComponent();
+            txtUser.Text = "helen.contreras@esfe.agape.edu.sv";
+            txtPass.Password = "123";
         }
 
         private async void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -42,7 +44,7 @@ namespace ESFE.SysAsistencia.UI
                     btnLogin.IsEnabled = false;
                     btnLogin.Content = "Ingresar";
                     MessageBox.Show("Se ha iniciado sesión con éxito, Bienvenido", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                    MainWindow mainWindow = new MainWindow();
+                    MainWindow mainWindow = new MainWindow(value);
                     mainWindow.Show();
                     this.Close();
                 }
