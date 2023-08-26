@@ -17,6 +17,7 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using ESFE.SysAsistencia.EN;
 
 namespace ESFE.SysAsistencia.UI
 {
@@ -25,9 +26,12 @@ namespace ESFE.SysAsistencia.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        Auth Docente;
+        public MainWindow(Auth _Docente)
         {
+            Docente = _Docente;
             InitializeComponent();
+            txtDocente.Text = Docente.nombre;
 
         }
         private bool IsMaximize = false;

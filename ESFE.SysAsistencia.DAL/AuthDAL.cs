@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using RestSharp;
 using RestSharp.Authenticators;
-using ESFE.SysAsistencia.EN; // Asegúrate de agregar esta referencia al espacio de nombres correcto
+using ESFE.SysAsistencia.EN;
 
 namespace ESFE.SysAsistencia.DAL
 {

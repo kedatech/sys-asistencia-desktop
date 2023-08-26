@@ -29,10 +29,10 @@ namespace ESFE.SysAsistencia.UI
 
         private async void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            Auth value = await auth.Login("helen.contreras@esfe.agape.edu.sv", "123");
+            Auth docenteAuth = await auth.Login("helen.contreras@esfe.agape.edu.sv", "123");
             //txtLogin.Text = value;
-            //MainWindow mainWindow = new MainWindow();
-            //mainWindow.Show();
+            MainWindow mainWindow = new MainWindow(docenteAuth);
+            mainWindow.Show();
         }
     }
 }
