@@ -14,9 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using System.Collections.ObjectModel;
-using System.Windows;
-using System.Windows.Input;
-using System.Windows.Media;
 using ESFE.SysAsistencia.EN;
 
 namespace ESFE.SysAsistencia.UI
@@ -32,6 +29,7 @@ namespace ESFE.SysAsistencia.UI
             Docente = _Docente;
             InitializeComponent();
             txtDocente.Text = Docente.nombre;
+            
 
         }
         private bool IsMaximize = false;
@@ -72,6 +70,11 @@ namespace ESFE.SysAsistencia.UI
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             frame.NavigationService.Navigate(new Pages.Inicio());
+        }
+
+        private void asistencias_click(object sender, RoutedEventArgs e)
+        {
+            frame.NavigationService.Navigate(new Pages.Asistencia(this));
         }
     }
 

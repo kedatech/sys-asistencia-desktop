@@ -1,0 +1,124 @@
+﻿<Page x:Class="ESFE.SysAsistencia.UI.Pages.NuevaAsistencia"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      xmlns:local="clr-namespace:ESFE.SysAsistencia.UI.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="NuevaAsistencia">
+
+    <Page.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </Page.Resources>
+
+
+
+    <Grid>
+        <!--Main Section-->
+        <Grid Grid.Column="1" Margin="30 20 20 20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <!--<RowDefinition Height="auto"/>-->
+                <!--<RowDefinition Height="307.436666666667"/>-->
+                <!--<RowDefinition Height="auto"/>-->
+            </Grid.RowDefinitions>
+
+            <!--TODO: Search Textbox-->
+
+
+            <!--Top Buttons-->
+            <Button Style="{StaticResource topButton}" Margin="700,0,0,0" Background="#dcdcdc" HorizontalAlignment="Left">
+                <Icon:PackIconMaterial Kind="Cog"/>
+            </Button>
+
+            <Button Style="{StaticResource topButton}" Margin="665,0,0,0" HorizontalAlignment="Left">
+                <Icon:PackIconMaterial Kind="Bell"/>
+            </Button>
+
+            <!--Page Title-->
+            <TextBlock Text="Nueva Asistencia" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0,20,0,10" Foreground="#121518" HorizontalAlignment="Left" Grid.RowSpan="2"/>
+
+            <!--Add Button-->
+            <Button Style="{StaticResource addButton}" Margin="0,24,0,4" Grid.Row="1">
+                <StackPanel Orientation="Horizontal">
+                    <Icon:PackIconMaterial Kind="FileDocumentEdit" VerticalAlignment="Center" Margin="0 1 8 0" Width="15" Height="15"/>
+                    <TextBlock Text="Iniciar Asistencia"/>
+                </StackPanel>
+            </Button>
+
+            <TextBlock Foreground="#121518" Text="Carrera" FontWeight="SemiBold" FontFamily="Montserrat" FontSize="16" Width="59" HorizontalAlignment="Left" Margin="10,9,0,0" Grid.Row="4" VerticalAlignment="Top"/>
+            <ComboBox Name="cbxCarrera" Margin="74,7,0,0" Grid.Row="4" Text="xdx" MinWidth="151" MaxWidth="151" Height="25" MinHeight="25" MaxHeight="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+
+
+            <!--Seprator-->
+            <Separator Height="1" Grid.Row="4" Background="#DAE2EA" Margin="0,56,0,250"/>
+
+            <!--Tab buttons-->
+            <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="0,0,0,307">
+                <!--<Button Style="{StaticResource tabButton}" Content="C" BorderBrush="#784FF2"/>
+                <Button Style="{StaticResource tabButton}" Content="Players"/>
+                <Button Style="{StaticResource tabButton}" Content="Archived"/>-->
+            </StackPanel>
+
+            <!--Counter Title-->
+            <!--<TextBlock Text="68 Club Staff" Grid.Row="4" FontSize="18" FontWeight="SemiBold" Foreground="#121518" HorizontalAlignment="Left" VerticalAlignment="Center"/>-->
+
+
+
+
+            <!--Members Data Grid-->
+            <!--<DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="membersDataGrid" Style="{DynamicResource DataGridStyle1}" SelectionChanged="membersDataGrid_SelectionChanged" Margin="0,78,0,0" Grid.Row="5">
+                <DataGrid.Columns>
+                    
+            <DataGridCheckBoxColumn Header="C" CanUserResize="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle1}">
+                        <DataGridCheckBoxColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <CheckBox Style="{StaticResource CheckBoxStyle1}"/>
+                            </DataTemplate>
+                        </DataGridCheckBoxColumn.HeaderTemplate>
+                    </DataGridCheckBoxColumn>
+            
+                    <DataGridTextColumn Header="#" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding Alumno}"/>
+                    <DataGridTemplateColumn Header="Alumno" IsReadOnly="True" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Border Width="25" Height="25" CornerRadius="50" Margin="0 0 10 0" Background="{Binding BgColor}">
+                                        <TextBlock Text="{Binding Character}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="0 0 0 1"/>
+                                    </Border>
+
+                                    <TextBlock Text="{Binding Name}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Criterio" Binding="{Binding Criterio}" IsReadOnly="False" Width="*"/>
+                    <DataGridTextColumn Header="Nomenclatura" Binding="{Binding Nomenclatura}" IsReadOnly="False" Width="*"/>
+                    <DataGridTemplateColumn Header="Operations" IsReadOnly="True" Width="auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Style="{StaticResource gridEditButton}">
+                                        <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
+                                    </Button>
+                                    <Button Margin="5 0 0 0" Style="{StaticResource gridRemoveButton}">
+                                        <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>-->
+
+
+
+        </Grid>
+
+    </Grid>
+</Page>
