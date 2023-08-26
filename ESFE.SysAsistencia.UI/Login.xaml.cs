@@ -29,10 +29,40 @@ namespace ESFE.SysAsistencia.UI
 
         private async void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            Auth value = await auth.Login("helen.contreras@esfe.agape.edu.sv", "123");
-            //txtLogin.Text = value;
-            //MainWindow mainWindow = new MainWindow();
-            //mainWindow.Show();
+            if(txtUser.Text != "" && txtPass.Password != "")
+            {
+                btnLogin.IsEnabled = false;
+                txtPass.IsEnabled = false;
+                txtUser.IsEnabled = false;
+                btnLogin.Content = "Ingresando...";
+                Auth value = await auth.Login(txtUser.Text, txtPass.Password);
+
+                if (value != null && value.id != 0)
+                {
+                    btnLogin.IsEnabled = false;
+                    btnLogin.Content = "Ingresar";
+                    MessageBox.Show("Se ha iniciado sesión con éxito, Bienvenido", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                    this.Close();
+                }
+                else
+                {
+                    btnLogin.IsEnabled = true;
+                    txtPass.IsEnabled = true;
+                    txtUser.IsEnabled = true;
+                    btnLogin.Content = "Ingresar";
+                    MessageBox.Show("Las credenciales no coinciden, correo o usuario incorrectos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Los campos no deben estar vacíos", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+
+            }
+
+
         }
     }
 }
