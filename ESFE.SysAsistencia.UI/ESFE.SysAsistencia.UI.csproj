@@ -8,6 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="descarga.png" />
+    <None Remove="esfe-removebg-preview.png" />
+    <None Remove="esfe.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MahApps.Metro" Version="2.4.10" />
     <PackageReference Include="MahApps.Metro.IconPacks" Version="4.11.0" />
   </ItemGroup>
@@ -15,6 +21,12 @@
   <ItemGroup>
     <ProjectReference Include="..\ESFE.SysAsistencia.BL\ESFE.SysAsistencia.BL.csproj" />
     <ProjectReference Include="..\ESFE.SysAsistencia.EN\ESFE.SysAsistencia.EN.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="descarga.png" />
+    <Resource Include="esfe-removebg-preview.png" />
+    <Resource Include="esfe.png" />
   </ItemGroup>
 
 </Project>

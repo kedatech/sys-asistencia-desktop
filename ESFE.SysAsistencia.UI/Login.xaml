@@ -9,7 +9,6 @@
         Title="Sistema de Asistencia ESFE - Inicio de Sesion" Height="450" Width="800">
 
     <Grid>
-        <Image Source="/esfe-logo-sin-fondo-borde.png" Panel.ZIndex="22" Stretch="Fill" Height="NaN" Margin="102,49,541,226" />
 
 
 
@@ -131,6 +130,7 @@
 
         </StackPanel>
         <StackPanel Background="#FF563CE2" HorizontalAlignment="Left" Width="350"/>
+        <Image HorizontalAlignment="Left" Height="130" Margin="88,86,0,0" VerticalAlignment="Top" Width="152" Source="/esfe-removebg-preview.png"/>
 
 
 
