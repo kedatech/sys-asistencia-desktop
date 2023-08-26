@@ -14,13 +14,12 @@
 
         <TextBlock
                 HorizontalAlignment="Left"
-                VerticalAlignment="Top"
                 Foreground="White"
                 FontFamily="Montserrat"
                 FontWeight="SemiBold"
-                FontSize="18" Margin="67,222,0,0"
+                FontSize="18" Margin="67,227,0,0"
                 TextAlignment="Center"
-            Panel.ZIndex="23"
+            Panel.ZIndex="23" Height="43" VerticalAlignment="Top"
                 ><Run Text="Bienvenido al Sistema de "/><LineBreak/><Run Text="Asistencia de ESFE"/></TextBlock>
 
         <!--<Grid.Background>
@@ -130,7 +129,8 @@
 
         </StackPanel>
         <StackPanel Background="#FF563CE2" HorizontalAlignment="Left" Width="350"/>
-        <Image HorizontalAlignment="Left" Height="130" Margin="88,86,0,0" VerticalAlignment="Top" Width="152" Source="/esfe-removebg-preview.png"/>
+        <Image HorizontalAlignment="Left" Height="163" Margin="90,59,0,0" VerticalAlignment="Top" Width="170" Source="/esfe-logo.png"/>
+        <Image Margin="355,0,3,0" Source="/esfe-logo.png" Opacity="0.09" Panel.ZIndex="-1" Stretch="UniformToFill"/>
 
 
 

@@ -8,9 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="descarga.png" />
-    <None Remove="esfe-removebg-preview.png" />
-    <None Remove="esfe.png" />
+    <None Remove="esfe-logo.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,9 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="descarga.png" />
-    <Resource Include="esfe-removebg-preview.png" />
-    <Resource Include="esfe.png" />
+    <Resource Include="esfe-logo.png" />
   </ItemGroup>
 
 </Project>
