@@ -22,18 +22,19 @@ namespace ESFE.SysAsistencia.DAL
             var cancellationToken = new CancellationToken(); // Debes definir un token de cancelación
 
             // Agregar los parámetros en el cuerpo de la solicitud
-            request.AddObject(new { correo = correo, contrasenia = contrasenia });
+            request.AddBody(new { correo = correo, contrasenia = contrasenia });
 
             try
             {
                 var response = await client.ExecuteAsync(request, cancellationToken);
 
                 // Procesar la respuesta aquí
-                if (response != null ) // Verifica si la respuesta fue exitosa (código 200)
+                if (response != null) // Verifica si la respuesta fue exitosa (código 200)
                 {
                     using (var responseStream = new MemoryStream(response.RawBytes))
                     {
-                        var auth = JsonSerializer.DeserializeAsync<Auth>(responseStream).Result;
+                        responseStream.Position = 0; // Posicionar el puntero al principio del flujo
+                        var auth = await JsonSerializer.DeserializeAsync<Auth>(responseStream);
 
                         Console.WriteLine("Respuesta exitosa:");
                         Console.WriteLine(response.Content); // Puedes acceder al contenido de la respuesta
