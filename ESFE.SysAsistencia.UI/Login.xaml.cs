@@ -21,7 +21,7 @@ namespace ESFE.SysAsistencia.UI
     /// </summary>
     public partial class Login : Window
     {
-        AuthBL auth = new AuthBL();
+        AuthBL authBL = new AuthBL();
         public Login()
         {
             InitializeComponent();
@@ -37,7 +37,7 @@ namespace ESFE.SysAsistencia.UI
                 txtPass.IsEnabled = false;
                 txtUser.IsEnabled = false;
                 btnLogin.Content = "Ingresando...";
-                Auth value = await auth.Login(txtUser.Text, txtPass.Password);
+                Auth value = await authBL.Login(txtUser.Text, txtPass.Password);
 
                 if (value != null && value.id != 0)
                 {
