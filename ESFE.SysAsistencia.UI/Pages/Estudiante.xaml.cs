@@ -31,7 +31,7 @@ namespace ESFE.SysAsistencia.UI.Pages
             Docente = _Docente;
             InitializeComponent();
 
-            var resut = estudianteBL.GetEstudiantes(Docente.id);
+            var resut = estudianteBL.GetEstudiantes(Docente.Id);
 
             var converter = new BrushConverter();
             //ObservableCollection<EstudianteGrid> members = new ObservableCollection<EstudianteGrid>();

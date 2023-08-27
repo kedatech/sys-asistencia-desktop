@@ -13,14 +13,14 @@ namespace ESFE.SysAsistencia.DAL
     {
         public List<Auth> LocalLogin(List<string> parametros)
         {
-            List<string> parametros_sp = new List<string> { "correo", "contrasenia" };
+            List<string> parametros_sp = new List<string> { "Correo", "Contrasenia" };
 
             return ComunBD.EjecutarLoginSP<Auth>("LocalLogin", parametros);
         }
 
         public bool GuardarLog(Auth auth)
         {
-            List<string> parametros = new() { "id","nombre","correo","contrasenia","telefono","carreraId"};
+            List<string> parametros = new() { "Id","Nombre","Correo","Contrasenia","Telefono","CarreraId"};
 
             int valor = ComunBD.EjecutarSP("InsertarAuth", auth, parametros);
             return valor > 0;

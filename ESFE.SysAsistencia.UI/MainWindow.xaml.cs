@@ -28,7 +28,7 @@ namespace ESFE.SysAsistencia.UI
         {
             Docente = _Docente;
             InitializeComponent();
-            txtDocente.Text = Docente.nombre;
+            txtDocente.Text = Docente.Nombre;
             
 
         }

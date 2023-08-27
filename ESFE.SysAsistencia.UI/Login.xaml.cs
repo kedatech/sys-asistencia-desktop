@@ -35,7 +35,7 @@ namespace ESFE.SysAsistencia.UI
             
             Auth value = await auth.Login(txtUser.Text, txtPass.Password);
 
-            if (value != null && value.id != 0)
+            if (value != null && value.Id != 0)
             {
                 btnLogin.IsEnabled = false;
                 btnLogin.Content = "Ingresar";
@@ -64,14 +64,14 @@ namespace ESFE.SysAsistencia.UI
                 Auth auth_class = new Auth();
                 foreach (var i in auth_log)
                 {
-                    auth_class.id = i.id;
-                    auth_class.nombre = i.nombre;
-                    auth_class.correo = i.correo;
-                    auth_class.contrasenia = i.contrasenia;
-                    auth_class.telefono = i.telefono;
-                    auth_class.carreraId = i.carreraId;
+                    auth_class.Id = i.Id;
+                    auth_class.Nombre = i.Nombre;
+                    auth_class.Correo = i.Correo;
+                    auth_class.Contrasenia = i.Contrasenia;
+                    auth_class.Telefono = i.Telefono;
+                    auth_class.CarreraId = i.CarreraId;
                 }
-                if (auth_class != null && auth_class.id != 0)
+                if (auth_class != null && auth_class.Id != 0)
                 {
                     MessageBox.Show("Se ha iniciado sesión localmente, Bienvenido", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
                     btnLogin.IsEnabled = false;
@@ -93,16 +93,16 @@ namespace ESFE.SysAsistencia.UI
                 //Pedir que devuelva la api
                 Auth auth_value = await auth.Login(txtUser.Text, txtPass.Password);
 
-                if (auth_value != null && auth_value.id != 0)
+                if (auth_value != null && auth_value.Id != 0)
                 {
                     Auth auth_class = new Auth()
                     {
-                        id = auth_value.id,
-                        nombre = auth_value.nombre,
-                        correo = auth_value.correo,
-                        contrasenia = auth_value.contrasenia,
-                        telefono = auth_value.telefono,
-                        carreraId = auth_value.carreraId
+                        Id = auth_value.Id,
+                        Nombre = auth_value.Nombre,
+                        Correo = auth_value.Correo,
+                        Contrasenia = auth_value.Contrasenia,
+                        Telefono = auth_value.Telefono,
+                        CarreraId = auth_value.CarreraId
                     };
 
                     var response = locallogin.GuardarSesion(auth_class);
