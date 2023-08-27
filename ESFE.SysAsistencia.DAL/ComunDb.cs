@@ -12,7 +12,7 @@ namespace Esfe.SysAsistencia.DAL
     public class ComunBD
     {
         //---Se coloca el link de conexion en una constante
-        const string StrConexion = @"Data Source=localhost;Initial Catalog=BDSysAsistencia;Integrated Security=True";
+        const string StrConexion = @"Data Source=localhost;Initial Catalog=SysAsistenciaLocal;Integrated Security=True";
         //----Establecemos la conexion con SQL
         private static SqlConnection ObtenerConexion()
         {
@@ -55,7 +55,34 @@ namespace Esfe.SysAsistencia.DAL
                     comando.Parameters.AddWithValue("@" + propiedad.Name, valor);
                 }
             }
+            
             return EjecutarComando(comando);
+        }
+
+        public static List<T> EjecutarLoginSP<T>(string nombreSP, List<string> parametros) where T : new()
+        {
+            SqlCommand comando = ObtenerComando();
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandText = nombreSP;
+            comando.Parameters.AddWithValue("@correo", parametros.First());
+            comando.Parameters.AddWithValue("@contrasenia", parametros.Last());
+
+            //Checar
+            SqlDataReader reader = EjecutarReader(comando);
+
+
+            List<T> ObjetoFinal = new List<T>();
+            while (reader.Read())
+            {
+                T item = new T();
+                foreach (var propiedad in item.GetType().GetProperties())
+                {
+                    propiedad.SetValue(item, reader[propiedad.Name]);
+                }
+                ObjetoFinal.Add(item);
+            }
+            reader.Close();
+            return ObjetoFinal;
         }
         public static List<T> EjecutarSPSelect<T>(string nombreSP) where T : new()
         {
