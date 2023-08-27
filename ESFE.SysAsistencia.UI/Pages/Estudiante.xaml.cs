@@ -26,9 +26,11 @@ namespace ESFE.SysAsistencia.UI.Pages
     {
         Auth Docente;
         EstudianteBL estudianteBL = new EstudianteBL();
-        public Estudiante(Auth _Docente)
+        MainWindow main_frame;
+        public Estudiante(Auth _Docente, MainWindow padre)
         {
             Docente = _Docente;
+            main_frame = padre;
             InitializeComponent();
 
             InitDataGrid();
@@ -39,9 +41,7 @@ namespace ESFE.SysAsistencia.UI.Pages
             if (sender is Button button && button.Tag != null)
             {
                 int id = (int)button.Tag;
-                // Ahora puedes usar el valor "id" como necesites
-                // Por ejemplo, mostrarlo en un MessageBox o realizar alguna otra operación.
-                MessageBox.Show($"Clicked on button with ID: {id}");
+                main_frame.frame.NavigationService.Navigate(new Pages.NuevoRfid());
             }
         }
 

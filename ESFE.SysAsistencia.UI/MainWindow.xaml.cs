@@ -64,7 +64,7 @@ namespace ESFE.SysAsistencia.UI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            frame.NavigationService.Navigate(new Pages.Estudiante(Docente));
+            frame.NavigationService.Navigate(new Pages.Estudiante(Docente, this));
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

@@ -9,11 +9,13 @@
 
   <ItemGroup>
     <None Remove="esfe-logo.png" />
+    <None Remove="Pages\loading.gif" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MahApps.Metro" Version="2.4.10" />
     <PackageReference Include="MahApps.Metro.IconPacks" Version="4.11.0" />
+    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +25,7 @@
 
   <ItemGroup>
     <Resource Include="esfe-logo.png" />
+    <Resource Include="Pages\loading.gif" />
   </ItemGroup>
 
 </Project>

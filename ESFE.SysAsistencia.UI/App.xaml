@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ESFE.SysAsistencia.UI"
  
+             xmlns:gif="http://wpfanimatedgif.codeplex.com"
              xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              StartupUri="Login.xaml"
              xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
