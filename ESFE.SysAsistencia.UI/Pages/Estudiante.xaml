@@ -13,7 +13,7 @@
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
     </Page.Resources>
 
-    <Grid>
+    <Grid Background="#fff">
         <!--Main Section-->
         <Grid Grid.Column="1" Margin="30 20 20 20">
             <Grid.RowDefinitions>
@@ -74,31 +74,38 @@
             </Grid>
 
             <!--Members Data Grid-->
-            <DataGrid x:Name="membersDataGrid" SelectionChanged="membersDataGrid_SelectionChanged">
+            <DataGrid 
+                x:Name="dataGrid" Style="{DynamicResource DataGridStyle1}"
+                RowStyle="{DynamicResource DataGridRowStyle1}" 
+                ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
+                CellStyle="{DynamicResource DataGridCellStyle1}" 
+             >
                 <DataGrid.Columns>
-                    <DataGridCheckBoxColumn Header="C" CanUserResize="False" Width="auto">
+                    <DataGridCheckBoxColumn Header="C" CanUserResize="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle1}">
                         <DataGridCheckBoxColumn.HeaderTemplate>
                             <DataTemplate>
-                                <CheckBox/>
+                                <CheckBox Style="{StaticResource CheckBoxStyle1}"/>
                             </DataTemplate>
                         </DataGridCheckBoxColumn.HeaderTemplate>
                     </DataGridCheckBoxColumn>
-                    <DataGridTextColumn Header="#" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding Number}"/>
-                    <DataGridTemplateColumn Header="Member" IsReadOnly="True" Width="*">
+                    <DataGridTextColumn Header="#" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding Id}"/>
+                    <DataGridTemplateColumn Header="Nombre" IsReadOnly="True" Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <Border Width="25" Height="25" CornerRadius="50" Margin="0 0 10 0" Background="{Binding BgColor}">
                                         <TextBlock Text="{Binding Character}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="0 0 0 1"/>
                                     </Border>
-                                    <TextBlock Text="{Binding Name}" VerticalAlignment="Center"/>
+
+                                    <TextBlock Text="{Binding Nombre}" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTextColumn Header="Email Address" Binding="{Binding Email}" IsReadOnly="True" Width="*"/>
-                    <DataGridTextColumn Header="Phone Number" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
-                    <DataGridTemplateColumn Header="Operations" IsReadOnly="True" Width="auto">
+                    <!--<DataGridTextColumn Header="Position" Binding="{Binding Position}" IsReadOnly="True" Width="*"/>-->
+                    <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" IsReadOnly="True" Width="*"/>
+                    <DataGridTextColumn Header="Grupo" Binding="{Binding GrupoName}" IsReadOnly="True" Width="*"/>
+                    <DataGridTemplateColumn Header="Acciones" IsReadOnly="True" Width="auto">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
@@ -114,6 +121,7 @@
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
+
 
 
         </Grid>

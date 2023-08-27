@@ -31,12 +31,32 @@ namespace ESFE.SysAsistencia.UI.Pages
             Docente = _Docente;
             InitializeComponent();
 
-            var resut = estudianteBL.GetEstudiantes(Docente.Id);
+            InitDataGrid();
+        }
 
-            var converter = new BrushConverter();
-            //ObservableCollection<EstudianteGrid> members = new ObservableCollection<EstudianteGrid>();
+        public async void InitDataGrid()
+        {
+            var estudiantes = await estudianteBL.GetEstudiantes(Docente.Id);
 
-            //membersDataGrid.ItemsSource = members;
+            ObservableCollection<EstudianteGrid> estudianteGrid = new ObservableCollection<EstudianteGrid>();
+
+            for(int i = 0; i < estudiantes.Length; i++)
+            {
+                estudianteGrid.Add(new EstudianteGrid
+                {
+                    Id = estudiantes[i].Id,
+                    Nombre = estudiantes[i].Nombre,
+                    Codigo = estudiantes[i].Codigo,
+                    Correo = estudiantes[i].Correo,
+                    GrupoId = estudiantes[i].GrupoId,
+                    GrupoName = estudiantes[i].GrupoName,
+                    Telefono = estudiantes[i].Telefono,
+                    Character = estudiantes[i].Nombre[0].ToString(),
+                    BgColor = GetRandomColor()
+                });
+            }
+
+            dataGrid.ItemsSource = estudianteGrid;
         }
 
         private bool IsMaximize = false;
@@ -44,6 +64,32 @@ namespace ESFE.SysAsistencia.UI.Pages
         private void membersDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        public class EstudianteGrid : Esfe.SysAsistencia.EN.Estudiante
+        {
+            public Brush BgColor { get; set; }
+            public string Character { get; set; }
+        }
+
+        private static readonly List<string> Colors = new List<string>
+        {
+            "#1098AD", "#1E88E5", "#FF8F00", "#FF5252", "#0CA678", "#6741D9", "#FF6D00", "#1E88E5",
+            "#1098AD", "#1E88E5", "#FF8F00", "#FF5252", "#0CA678", "#6741D9", "#FF6D00", "#1E88E5",
+            "#1098AD", "#1E88E5", "#FF8F00", "#FF5252", "#0CA678", "#6741D9", "#FF6D00", "#1E88E5",
+            "#1098AD", "#1E88E5", "#FF8F00", "#FF5252", "#0CA678"
+        };
+
+        private static readonly Random Random = new Random();
+
+        public static Brush GetRandomColor()
+        {
+            var converter = new BrushConverter();
+
+            var randomColorIndex = Random.Next(Colors.Count);
+            var colorString = Colors[randomColorIndex];
+            var color = (Brush)converter.ConvertFromString(colorString);
+            return color;
         }
     }
 }
