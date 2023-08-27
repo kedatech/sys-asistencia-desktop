@@ -10,7 +10,7 @@ using ESFE.SysAsistencia.EN;
 
 namespace ESFE.SysAsistencia.DAL
 {
-    public class AuthDAL
+    public class AuthDAL     
     {
         public async Task<Auth> Login(string correo, string contrasenia)
         {
