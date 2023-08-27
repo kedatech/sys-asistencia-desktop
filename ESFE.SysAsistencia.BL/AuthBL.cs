@@ -10,11 +10,11 @@ namespace ESFE.SysAsistencia.BL
 {
     public class AuthBL
     {
-        AuthDAL auth = new AuthDAL();
+        AuthDAL authDAL = new AuthDAL();
 
         public async Task<Auth> Login(string correo, string contrasenia)
         {
-            Auth value = await auth.Login(correo, contrasenia);
+            Auth value = await authDAL.Login(correo, contrasenia);
             return value;
         }
     }
