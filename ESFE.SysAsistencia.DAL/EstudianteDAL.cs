@@ -16,15 +16,14 @@ namespace ESFE.SysAsistencia.DAL
     {
         public async Task<Estudiante[]> GetEstudiantes(int idDocente)
         {
-            var baseUrl = "https://esfe-asistencia-api-dev.fl0.io/api";
-            var client = new RestClient(baseUrl);
+           
 
             var request = new RestRequest($"/estudiante/docente/{idDocente}", Method.Get);
             var cancellationToken = new CancellationToken(); // Debes definir un token de cancelación
 
             try
             {
-                var response = await client.ExecuteAsync(request, cancellationToken);
+                var response = await restClient.ExecuteAsync(request, cancellationToken);
 
                 // Procesar la respuesta aquí
                 if (response.IsSuccessful) // Verifica si la respuesta fue exitosa (código 200)

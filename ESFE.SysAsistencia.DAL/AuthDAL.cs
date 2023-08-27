@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using RestSharp;
 using RestSharp.Authenticators;
 using ESFE.SysAsistencia.EN;
+using static ESFE.SysAsistencia.DAL.ComunApi;
 
 namespace ESFE.SysAsistencia.DAL
 {
@@ -14,10 +15,6 @@ namespace ESFE.SysAsistencia.DAL
     {
         public async Task<Auth> Login(string correo, string contrasenia)
         {
-            // Crea el cliente RestSharp
-            var options = new RestClientOptions("https://esfe-asistencia-api-dev.fl0.io/api");
-            var client = new RestClient(options);
-
             var request = new RestRequest("/auth/login", Method.Post);
             var cancellationToken = new CancellationToken(); // Debes definir un token de cancelación
 
@@ -26,7 +23,7 @@ namespace ESFE.SysAsistencia.DAL
 
             try
             {
-                var response = await client.ExecuteAsync(request, cancellationToken);
+                var response = await restClient.ExecuteAsync(request, cancellationToken);
 
                 // Procesar la respuesta aquí
                 if (response != null) // Verifica si la respuesta fue exitosa (código 200)
