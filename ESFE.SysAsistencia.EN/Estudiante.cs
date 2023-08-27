@@ -29,5 +29,12 @@ namespace Esfe.SysAsistencia.EN
 
         [JsonPropertyName("grupoId")]
         public int GrupoId { get; set; }
+
+        [JsonPropertyName("grupoName")]
+        public string GrupoName { get; set; }
+
+
     }
+
+    
 }
