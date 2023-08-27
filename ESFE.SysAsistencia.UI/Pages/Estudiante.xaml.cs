@@ -34,6 +34,17 @@ namespace ESFE.SysAsistencia.UI.Pages
             InitDataGrid();
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.Tag != null)
+            {
+                int id = (int)button.Tag;
+                // Ahora puedes usar el valor "id" como necesites
+                // Por ejemplo, mostrarlo en un MessageBox o realizar alguna otra operación.
+                MessageBox.Show($"Clicked on button with ID: {id}");
+            }
+        }
+
         public async void InitDataGrid()
         {
             var estudiantes = await estudianteBL.GetEstudiantes(Docente.Id);

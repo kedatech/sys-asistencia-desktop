@@ -44,7 +44,7 @@
             <!--Add Button-->
             <Button Style="{StaticResource addButton}">
                 <StackPanel Orientation="Horizontal">
-                    <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11" Height="11"/>
+                    <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 0 8 0" Width="11" Height="11"/>
                     <TextBlock Text="Registrar Huella"/>
                 </StackPanel>
             </Button>
@@ -108,13 +108,22 @@
                     <DataGridTemplateColumn Header="Acciones" IsReadOnly="True" Width="auto">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <Button Style="{StaticResource gridEditButton}">
+                                <StackPanel Orientation="Horizontal" Margin="0 0 10 0" >
+                                    <Button Style="{StaticResource gridEditButton}" Click="Button_Click" Tag="{Binding Id}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 0 8 0" Width="8" Height="8"/>
+                                            <TextBlock Text="RFID"/>
+                                        </StackPanel>
+                                    </Button>
+                                    <!--<Button 
+                                        Style="{StaticResource gridEditButton}"
+                                        Click="Button_Click" Tag="{Binding Id}" 
+                                     >
                                         <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
-                                    </Button>
-                                    <Button Margin="5 0 0 0" Style="{StaticResource gridRemoveButton}">
+                                    </Button>-->
+                                    <!--<Button Margin="5 0 0 0" Style="{StaticResource gridRemoveButton}">
                                         <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
-                                    </Button>
+                                    </Button>-->
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
