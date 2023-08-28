@@ -12,6 +12,10 @@ using static ESFE.SysAsistencia.DAL.ComunApi;
 
 namespace ESFE.SysAsistencia.DAL
 {
+    /// <summary>
+    /// Clase que crea una peticion a la API para obtener a todos los alumnos por medio de un ID del docente
+    /// Creador: Eliseo Arévalo
+    /// </summary>
     public class EstudianteDAL
     {
         public async Task<Estudiante[]> GetEstudiantes(int idDocente)

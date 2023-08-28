@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace ESFE.SysAsistencia.EN
 {
+    /// <summary>
+    /// Clase para autenticación de usuario como Docente
+    /// Creadora: Gabriela Herrera
+    /// </summary>
     public class Auth
     {
         [JsonPropertyName("id")]

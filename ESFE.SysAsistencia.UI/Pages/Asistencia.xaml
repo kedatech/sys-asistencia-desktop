@@ -13,7 +13,7 @@
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
     </Page.Resources>
 
-    <Grid>
+    <Grid Background="White">
         <!--Main Section-->
         <Grid Grid.Column="1" Margin="30 20 20 20">
             <Grid.RowDefinitions>

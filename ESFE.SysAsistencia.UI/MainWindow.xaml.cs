@@ -74,7 +74,7 @@ namespace ESFE.SysAsistencia.UI
 
         private void asistencias_click(object sender, RoutedEventArgs e)
         {
-            frame.NavigationService.Navigate(new Pages.Asistencia(this));
+            frame.NavigationService.Navigate(new Pages.NuevaAsistencia());
         }
     }
 

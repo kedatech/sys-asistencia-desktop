@@ -10,6 +10,10 @@ using static ESFE.SysAsistencia.DAL.ComunApi;
 
 namespace ESFE.SysAsistencia.DAL
 {
+    /// <summary>
+    /// Clase para hacer uso del RFID y hacer consulta por API
+    /// Creador: Eiseo Arévalo
+    /// </summary>
     public  class RfidDAL
     {
         public async Task<bool> PostUid(string uid, int estudianteId)
