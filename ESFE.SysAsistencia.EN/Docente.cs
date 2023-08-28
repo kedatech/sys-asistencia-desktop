@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace Esfe.SysAsistencia.EN
 {
     /// <summary>
-    /// Clase que representa a un Estudiante.
+    /// Clase que representa a un Docente
+    /// Creador: Daniel Rodriguez
     /// </summary>
     public class Docente
     {

@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 
 namespace ESFE.SysAsistencia.DAL
 {
+    /// <summary>
+    /// Clase para iniciar sesion de forma local con una Base de Datos
+    /// Creador: Daniel Rodriguez
+    /// </summary>
     public class LocalLoginDAL
     {
         public List<Auth> LocalLogin(List<string> parametros)

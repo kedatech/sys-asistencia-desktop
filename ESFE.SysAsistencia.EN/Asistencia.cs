@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace Esfe.SysAsistencia.EN
 {
     /// <summary>
-    /// Clase que representa a un Estudiante.
+    /// Clase para tomar la asistencia de los estudiantes por medio del RFID
+    /// Creadora: Khaterine Romualdo
     /// </summary>
     public class Asistencia
     {

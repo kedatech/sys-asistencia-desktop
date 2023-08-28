@@ -9,6 +9,7 @@ namespace Esfe.SysAsistencia.EN
 {
     /// <summary>
     /// Clase que representa a un Estudiante.
+    /// Creador: Eliseo Arévalo
     /// </summary>
     public class Estudiante
     {
