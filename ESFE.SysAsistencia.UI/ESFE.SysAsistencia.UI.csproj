@@ -9,12 +9,15 @@
 
   <ItemGroup>
     <None Remove="esfe-logo.png" />
+    <None Remove="Pages\card-rfid.jpg" />
+    <None Remove="Pages\check.png" />
     <None Remove="Pages\loading.gif" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MahApps.Metro" Version="2.4.10" />
     <PackageReference Include="MahApps.Metro.IconPacks" Version="4.11.0" />
+    <PackageReference Include="System.IO.Ports" Version="7.0.0" />
     <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
   </ItemGroup>
 
@@ -25,6 +28,8 @@
 
   <ItemGroup>
     <Resource Include="esfe-logo.png" />
+    <Resource Include="Pages\card-rfid.jpg" />
+    <Resource Include="Pages\check.png" />
     <Resource Include="Pages\loading.gif" />
   </ItemGroup>
 

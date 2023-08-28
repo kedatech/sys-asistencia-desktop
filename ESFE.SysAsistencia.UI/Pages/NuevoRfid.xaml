@@ -33,8 +33,9 @@
                 <Button Style="{StaticResource tabButton}" Content="Players"/>
                 <Button Style="{StaticResource tabButton}" Content="Archived"/>-->
             </StackPanel>
-            <Image HorizontalAlignment="Left" Height="100" Margin="240,187,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="100"/>
-            <Image gif:ImageBehavior.AnimatedSource="/Pages/loading.gif" HorizontalAlignment="Left" Height="208" Margin="240,114,0,0" VerticalAlignment="Top" Width="208" Grid.Row="1"/>
+            <Image x:Name="imgLoader" gif:ImageBehavior.AnimatedSource="/Pages/loading.gif" HorizontalAlignment="Left" Height="208" Margin="240,114,0,0" VerticalAlignment="Top" Width="208" Grid.Row="1"/>
+            <TextBlock x:Name="txt" FontSize="30px" HorizontalAlignment="Left" Margin="10,82,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Esperando Tarjeta RFID" VerticalAlignment="Top"/>
+            <Image x:Name="imgRfid" HorizontalAlignment="Left" Height="196" Margin="261,138,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="196" Source="/Pages/card-rfid.jpg" IsEnabled="False" Visibility="Collapsed"/>
         </Grid>
     </Grid>
 </Page>

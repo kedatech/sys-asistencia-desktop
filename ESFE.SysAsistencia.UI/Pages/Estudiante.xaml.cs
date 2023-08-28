@@ -41,7 +41,7 @@ namespace ESFE.SysAsistencia.UI.Pages
             if (sender is Button button && button.Tag != null)
             {
                 int id = (int)button.Tag;
-                main_frame.frame.NavigationService.Navigate(new Pages.NuevoRfid());
+                main_frame.frame.NavigationService.Navigate(new Pages.NuevoRfid(id));
             }
         }
 

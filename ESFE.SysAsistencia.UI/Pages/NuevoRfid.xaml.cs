@@ -1,28 +1,89 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ESFE.SysAsistencia.BL;
+using ESFE.SysAsistencia.UI.Helpers;
+using System;
+using System.IO.Ports;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ESFE.SysAsistencia.UI.Pages
 {
-    /// <summary>
-    /// Lógica de interacción para NuevoRfid.xaml
-    /// </summary>
     public partial class NuevoRfid : Page
     {
-        public NuevoRfid()
+        private SerialPort serialPort;
+        int idEstudiante;
+
+        RfidBL rfidBL = new RfidBL();
+        public NuevoRfid(int _idEstudiante)
         {
+            idEstudiante = _idEstudiante;
             InitializeComponent();
+            InitializeSerialPort();
+            Unloaded += NuevoRfid_Unloaded;
+        }
+
+        private void InitializeSerialPort()
+        {
+            serialPort = new SerialPort
+            {
+                PortName = "COM14", // Cambiar a tu puerto serial
+                BaudRate = 9600,
+                DataBits = 8,
+                Parity = Parity.None,
+                StopBits = StopBits.One,
+            };
+
+            try
+            {
+                serialPort.Open();
+                serialPort.DataReceived += SerialPort_DataReceived;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al abrir el puerto serial: {ex.Message}");
+            }
+        }
+
+        private async void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            string receivedData = serialPort.ReadLine().Trim();
+
+            if (!string.IsNullOrEmpty(receivedData) && receivedData != "0" && receivedData.Length > 1 && Application.Current != null)
+            {
+                await Application.Current.Dispatcher.InvokeAsync(async () =>
+                {
+                    imgLoader.Visibility = Visibility.Collapsed;
+                    txt.Text = "Guardando, por favor espere...";
+                    imgRfid.Visibility = Visibility.Visible;
+
+                    bool result = await rfidBL.PostUid(receivedData, idEstudiante);
+
+                    //imgRfid.Visibility = Visibility.c;
+
+                    if (result)
+                    {
+                        Uri newImageUri = new Uri("/Pages/check.png", UriKind.Relative);
+                        BitmapImage newImage = new BitmapImage(newImageUri);
+                        imgRfid.Source = newImage;
+                        txt.Text = "Hecho";
+                    }
+                    else
+                    {
+                        txt.Text = "Eror...";
+                        MessageBox.Show("Oh no. Ocurrio un error");
+;                    }
+                });
+            }
+        }
+
+
+        private void NuevoRfid_Unloaded(object sender, RoutedEventArgs e)
+        {
+            if (serialPort != null && serialPort.IsOpen)
+            {
+                serialPort.Close();
+            }
         }
     }
 }
