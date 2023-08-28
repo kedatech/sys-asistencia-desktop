@@ -41,14 +41,6 @@
             <!--Page Title-->
             <TextBlock Text="Estudiantes" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="#121518" HorizontalAlignment="Left"/>
 
-            <!--Add Button-->
-            <Button Style="{StaticResource addButton}">
-                <StackPanel Orientation="Horizontal">
-                    <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 0 8 0" Width="11" Height="11"/>
-                    <TextBlock Text="Registrar Huella"/>
-                </StackPanel>
-            </Button>
-
             <!--Seprator-->
             <Separator Height="1" Grid.Row="3" Background="#DAE2EA" Margin="0 -1 0 10"/>
 
