@@ -12,6 +12,7 @@
     <None Remove="Pages\card-rfid.jpg" />
     <None Remove="Pages\check.png" />
     <None Remove="Pages\loading.gif" />
+    <None Remove="Pages\rfid-icon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,6 +32,7 @@
     <Resource Include="Pages\card-rfid.jpg" />
     <Resource Include="Pages\check.png" />
     <Resource Include="Pages\loading.gif" />
+    <Resource Include="Pages\rfid-icon.png" />
   </ItemGroup>
 
 </Project>

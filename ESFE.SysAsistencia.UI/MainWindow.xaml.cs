@@ -23,7 +23,7 @@ namespace ESFE.SysAsistencia.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        Auth Docente;
+        public Auth Docente;
         public MainWindow(Auth _Docente)
         {
             Docente = _Docente;

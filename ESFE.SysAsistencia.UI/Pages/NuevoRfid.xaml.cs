@@ -1,5 +1,4 @@
 ﻿using ESFE.SysAsistencia.BL;
-using ESFE.SysAsistencia.UI.Helpers;
 using System;
 using System.IO.Ports;
 using System.Windows;

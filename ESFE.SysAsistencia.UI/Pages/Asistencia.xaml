@@ -26,26 +26,23 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
             <!--TODO: Search Textbox-->
 
 
-            <!--Top Buttons-->
-            <Button Style="{StaticResource topButton}" Margin="0 0 20 0" Background="#dcdcdc">
-                <Icon:PackIconMaterial Kind="Cog"/>
-            </Button>
-
-            <Button Style="{StaticResource topButton}" Margin="0 0 55 0">
-                <Icon:PackIconMaterial Kind="Bell"/>
-            </Button>
 
             <!--Page Title-->
-            <TextBlock Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="#121518" HorizontalAlignment="Left"><Run Language="es-mx" Text="Asistencias"/></TextBlock>
+            <TextBlock Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0" Foreground="#121518" HorizontalAlignment="Left" RenderTransformOrigin="0.833,4.346"><Run Language="es-mx" Text="Asistencias"/></TextBlock>
 
             <!--Add Button-->
             <Button x:Name="btnNuevaAsistencia" Style="{StaticResource addButton}" FontSize="12" Click="click_new">
                 <StackPanel Orientation="Horizontal">
-                    <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11" Height="11"/>
-                    <TextBlock><Run Language="es-mx" Text="Nueva Asistencia" /><Run Language="es-mx"/></TextBlock>
+                    <!--<Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11" Height="11"/>-->
+                    <TextBlock><Run Language="es-mx" Text="Iniciar Asistencia" /><Run Language="es-mx"/></TextBlock>
                 </StackPanel>
             </Button>
 
@@ -76,8 +73,13 @@
                 <TextBox Name="textBoxFilter" Style="{StaticResource filterTextBox}"/>
             </Grid>
 
-            <!--Members Data Grid-->
-            <!--<DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="membersDataGrid" Style="{DynamicResource DataGridStyle1}" SelectionChanged="membersDataGrid_SelectionChanged">
+
+            <DataGrid 
+                x:Name="dataGrid" Style="{DynamicResource DataGridStyle1}"
+                RowStyle="{DynamicResource DataGridRowStyle1}" 
+                ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
+                CellStyle="{DynamicResource DataGridCellStyle1}" 
+             >
                 <DataGrid.Columns>
                     <DataGridCheckBoxColumn Header="C" CanUserResize="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle1}">
                         <DataGridCheckBoxColumn.HeaderTemplate>
@@ -86,8 +88,8 @@
                             </DataTemplate>
                         </DataGridCheckBoxColumn.HeaderTemplate>
                     </DataGridCheckBoxColumn>
-                    <DataGridTextColumn Header="#" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding Number}"/>
-                    <DataGridTemplateColumn Header="Member" IsReadOnly="True" Width="*">
+                    <DataGridTextColumn Header="#" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding Id}"/>
+                    <DataGridTemplateColumn Header="Nombre" IsReadOnly="True" Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
@@ -95,32 +97,43 @@
                                         <TextBlock Text="{Binding Character}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="0 0 0 1"/>
                                     </Border>
 
-                                    <TextBlock Text="{Binding Name}" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding Nombre}" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    -->
-            <!--<DataGridTextColumn Header="Position" Binding="{Binding Position}" IsReadOnly="True" Width="*"/>-->
-            <!--
-                    <DataGridTextColumn Header="Email Address" Binding="{Binding Email}" IsReadOnly="True" Width="*"/>
-                    <DataGridTextColumn Header="Phone Number" Binding="{Binding Phone}" IsReadOnly="True" Width="*"/>
-                    <DataGridTemplateColumn Header="Operations" IsReadOnly="True" Width="auto">
+                    <!--<DataGridTextColumn Header="Position" Binding="{Binding Position}" IsReadOnly="True" Width="*"/>-->
+                    <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" IsReadOnly="True" Width="*"/>
+                    <DataGridTextColumn Header="Criterio" Binding="{Binding Criterio}" IsReadOnly="True" Width="*"/>
+                    <!--<DataGridTemplateColumn Header="Acciones" IsReadOnly="True" Width="auto">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <Button Style="{StaticResource gridEditButton}">
+                                <StackPanel Orientation="Horizontal" Margin="0 0 10 0" >
+                                    <Button Style="{StaticResource gridEditButton}" Click="Button_Click" Tag="{Binding Id}">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 0 8 0" Width="8" Height="8"/>
+                                            <TextBlock Text="RFID"/>
+                                        </StackPanel>
+                                    </Button>
+                                    -->
+                    <!--<Button 
+                                        Style="{StaticResource gridEditButton}"
+                                        Click="Button_Click" Tag="{Binding Id}" 
+                                     >
                                         <Icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
-                                    </Button>
-                                    <Button Margin="5 0 0 0" Style="{StaticResource gridRemoveButton}">
+                                    </Button>-->
+                    <!--<Button Margin="5 0 0 0" Style="{StaticResource gridRemoveButton}">
                                         <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
-                                    </Button>
+                                    </Button>-->
+                    <!--
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
+                    </DataGridTemplateColumn>-->
                 </DataGrid.Columns>
-            </DataGrid>-->
+            </DataGrid>
+            <StackPanel Grid.Column="1" Grid.Row="5"/>
+            <Frame x:Name="frame" Content="Frame" Margin="10,-5,4,10" Grid.RowSpan="6" Grid.Column="1"/>
 
 
 

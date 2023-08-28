@@ -33,6 +33,9 @@ namespace Esfe.SysAsistencia.EN
         [JsonPropertyName("grupoName")]
         public string GrupoName { get; set; }
 
+        [JsonPropertyName("rfid")]
+        public string Rfid { get; set; }
+
 
     }
 
